@@ -121,12 +121,6 @@ Note: Backend may experience cold-start delays on free-tier hosting.
 
 ---
 
-## 🎤 Interview Explanation (Short)
-
-> I built and deployed a secure file vault using React and Node.js with JWT authentication, Google Authenticator-based TOTP 2FA, backup recovery codes, and cloud deployment using Vercel, Render, and MongoDB Atlas.
-
----
-
 ## ✅ Project Status
 - Production Live
 - Secure & Scalable
