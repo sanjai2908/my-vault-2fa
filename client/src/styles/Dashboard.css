@@ -1,0 +1,112 @@
+/* Dashboard Animations */
+
+/* Tab content fade-in */
+.dashboard-tab-content {
+  animation: fadeInSlide 0.4s ease;
+}
+
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Sidebar button hover effect */
+.sidebar-button {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.sidebar-button::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+
+.sidebar-button:hover::before,
+.sidebar-button.active::before {
+  transform: scaleY(1);
+}
+
+.sidebar-button:hover {
+  transform: translateX(5px);
+}
+
+.sidebar-button.active {
+  transform: translateX(3px);
+}
+
+/* Profile image animation */
+.profile-image {
+  transition: all 0.3s ease;
+}
+
+.profile-image:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Logout button ripple effect */
+.logout-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.logout-button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translate(-50%, -50%);
+  transition:
+    width 0.6s,
+    height 0.6s;
+}
+
+.logout-button:hover::after {
+  width: 300px;
+  height: 300px;
+}
+
+.logout-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(220, 53, 69, 0.3);
+}
+
+/* Card entrance animation */
+.dashboard-card {
+  animation: cardEntrance 0.5s ease;
+}
+
+@keyframes cardEntrance {
+  0% {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Smooth height transition for tab content */
+.tab-container {
+  transition: min-height 0.3s ease;
+}
