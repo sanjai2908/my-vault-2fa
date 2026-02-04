@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import AuthenticatorSettings from "../components/AuthenticatorSettings";
 import "../styles/AuthenticatorSettings.css";
+import { API_ORIGIN } from "../utils/apiConfig";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -37,7 +38,7 @@ const Dashboard = () => {
               <div className="text-center mb-6">
                 {user?.profileImage ? (
                   <img
-                    src={`http://localhost:5000/${user.profileImage}`}
+                    src={`${API_ORIGIN}/${user.profileImage}`}
                     alt={user?.name}
                     className="w-20 h-20 rounded-full mx-auto mb-4 object-cover"
                   />

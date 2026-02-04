@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../styles/AuthenticatorSetup.css";
-
-const API_BASE_URL = "http://localhost:5000/api";
+import { API_BASE_URL } from "../utils/apiConfig";
 
 const AuthenticatorSetup = () => {
   const [step, setStep] = useState(1); // 1: Display QR, 2: Verify OTP, 3: Show Backup Codes

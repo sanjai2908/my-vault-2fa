@@ -1,5 +1,6 @@
 import React from "react";
 import { useAuth } from "../context/AuthContext";
+import { API_BASE_URL } from "../utils/apiConfig";
 
 const FilePreview = ({ file, onClose }) => {
   const { token } = useAuth();
@@ -15,8 +16,8 @@ const FilePreview = ({ file, onClose }) => {
   const tokenQuery = effectiveToken
     ? `?token=${encodeURIComponent(effectiveToken)}`
     : "";
-  const viewUrl = `http://localhost:5000/api/files/view/${file._id}${tokenQuery}`;
-  const downloadUrl = `http://localhost:5000/api/files/download/${file._id}${tokenQuery}`;
+  const viewUrl = `${API_BASE_URL}/files/view/${file._id}${tokenQuery}`;
+  const downloadUrl = `${API_BASE_URL}/files/download/${file._id}${tokenQuery}`;
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
@@ -86,7 +87,7 @@ const TextPreview = ({ fileId, token }) => {
   const [error, setError] = React.useState(null);
 
   React.useEffect(() => {
-    fetch(`http://localhost:5000/api/files/view/${fileId}`, {
+    fetch(`${API_BASE_URL}/files/view/${fileId}`, {
       headers: token ? { Authorization: `Bearer ${token}` } : {},
     })
       .then((res) => res.text())
@@ -95,7 +96,7 @@ const TextPreview = ({ fileId, token }) => {
         console.error("Error loading text:", err);
         setError("Failed to load file content");
       });
-  }, [fileId]);
+  }, [fileId, token]);
 
   if (error) {
     return <div className="text-red-500">{error}</div>;
